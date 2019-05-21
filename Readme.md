@@ -3,7 +3,8 @@
 
 ## Installation
 ```
-git clone https://github.com/aadeshere1/reminder.git
+git clone https://github.com/aadeshere1/reminder.git ~/.reminder
+cd ~/.reminder
 bundle install
 mv reminder.rb reminder
 chmod 755 reminder
