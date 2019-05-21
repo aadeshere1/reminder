@@ -16,6 +16,7 @@ Create and download credential for service account.
 Save it and place it on your PC.
 
 `echo 'export GCP_CONFIG_PATH="/your-location/credential.json"' >> ~/.bashrc`
+
 Also update your email in line 82
 
 ## Usage
