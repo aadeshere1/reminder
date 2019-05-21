@@ -19,4 +19,4 @@ Save it and place it on your PC.
 Also update your email in line 82
 
 ## Usage
-reminder '2019-01-01' '2:13PM' 'Setup PC for my mother because I am a developer but for family I am just a guy who repairs electronics.'
+`reminder '2019-01-01' '2:13PM' 'Setup PC for my mother because I am a developer but for family I am just a guy who repairs electronics.'`
