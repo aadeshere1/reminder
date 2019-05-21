@@ -79,7 +79,7 @@ class Reminder
       start: { date_time: event[:start_time].rfc3339 },
       end: { date_time: event[:end_time].rfc3339 }
       )
-    res = service.insert_event("luckeysherpa07@gmail.com", new_event)
+    res = service.insert_event("your-email@gmail.com", new_event)
 
     if res.status == "confirmed"
       ap "Event has been registered successfully on calendar #{res.organizer.display_name}"
