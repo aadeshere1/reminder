@@ -37,7 +37,7 @@ class Reminder
       min = time.min
     end
     
-    start = DateTime.new(year, month, day, hour, min,0,'+0545')
+    start = DateTime.new(year, month, day, hour, min,0,Time.now.zone)
     end_in_min = hour*60 + min + 30
     end_hour = end_in_min / 60
     end_min = end_in_min % 60
