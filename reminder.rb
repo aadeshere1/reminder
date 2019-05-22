@@ -37,7 +37,7 @@ class Reminder
       min = time.min
     end
     
-    start = DateTime.new(year, month, day, hour, min)
+    start = DateTime.new(year, month, day, hour, min,0,Time.now.zone)
     end_in_min = hour*60 + min + 30
     end_hour = end_in_min / 60
     end_min = end_in_min % 60
@@ -74,17 +74,21 @@ class Reminder
   end
 
   def add_event_to_calendar(service, event)
-    new_event = Google::Apis::CalendarV3::Event.new(
-      summary: event[:summary],
-      start: { date_time: event[:start_time].rfc3339 },
-      end: { date_time: event[:end_time].rfc3339 }
-      )
-    res = service.insert_event("your-email@gmail.com", new_event)
-
-    if res.status == "confirmed"
-      ap "Event has been registered successfully on calendar #{res.organizer.display_name}"
+    begin
+      new_event = Google::Apis::CalendarV3::Event.new(
+        summary: event[:summary],
+        start: { date_time: event[:start_time].rfc3339 },
+        end: { date_time: event[:end_time].rfc3339 }
+        )
+      res = service.insert_event("your-email@gmail.com", new_event)
+    rescue Google::Apis::ClientError => e
+      puts "Check if your email is correct or not"
     else
-      puts "the hell i know"
+      if res.status == "confirmed"
+        ap "Event has been registered successfully on calendar #{res.organizer.display_name}"
+      else
+        puts "the hell i know"
+      end
     end
   end
 end
